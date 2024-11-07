@@ -1,5 +1,7 @@
 import { View, Text, ViewStyle, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import colors from "tailwindcss/colors";
 
 const ROOT_STYLE: ViewStyle = { flex: 1 };
 
@@ -9,18 +11,18 @@ export default function HomeScreen() {
       title: "Profile Management",
       description:
         "Easily update and manage your personal information, settings, and preferences",
-      icon: "account-circle-outline",
+      icon: "person-circle-outline",
     },
     {
       title: "Secure Messaging",
       description: "Chat securely with friends and family in real-time.",
-      icon: "message-processing",
+      icon: "chatbox-ellipses-outline",
     },
     {
       title: "Activity Tracking",
       description:
         "Monitor your daily activities and track your progress over time.",
-      icon: "chart-timeline-variant",
+      icon: "bar-chart-outline",
     },
   ] as const;
 
@@ -37,14 +39,19 @@ export default function HomeScreen() {
         </View>
 
         <View>
-          {features.map(({ title, description }, index) => (
+          {features.map(({ title, description, icon }, index) => (
             <View
               key={index}
               className="flex-row items-center gap-4 ios:pt-8 pt-4"
             >
-              <View className="bg-blue-500 rounded p-3"></View>
+              <Ionicons
+                name={icon}
+                className="mx-auto"
+                size={24}
+                color={colors.gray[400]}
+              />
 
-              <View className="flex-1">
+              <View className="flex-1 ml-2">
                 <Text className="font-semibold text-white text-lg">
                   {title}
                 </Text>
@@ -55,8 +62,13 @@ export default function HomeScreen() {
         </View>
 
         <View className="gap-4">
-          <View className="bg-blue-500 w-4 h-4 rounded p-3"></View>
-          <Text className="text-white text-xs">
+          <Ionicons
+            name="people-outline"
+            className="mx-auto"
+            size={24}
+            color={colors.gray[400]}
+          />
+          <Text className="text-white text-xs text-center">
             By pressing continue, you agree to our Terms of Service and that you
             have read our Privacy Policy
           </Text>
