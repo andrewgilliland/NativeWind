@@ -1,82 +1,70 @@
-import { Image, StyleSheet, Platform } from "react-native";
+import { View, Text, ViewStyle, Pressable } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+const ROOT_STYLE: ViewStyle = { flex: 1 };
 
 export default function HomeScreen() {
+  const features = [
+    {
+      title: "Profile Management",
+      description:
+        "Easily update and manage your personal information, settings, and preferences",
+      icon: "account-circle-outline",
+    },
+    {
+      title: "Secure Messaging",
+      description: "Chat securely with friends and family in real-time.",
+      icon: "message-processing",
+    },
+    {
+      title: "Activity Tracking",
+      description:
+        "Monitor your daily activities and track your progress over time.",
+      icon: "chart-timeline-variant",
+    },
+  ] as const;
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={
-        <Image
-          source={require("@/assets/images/partial-react-logo.png")}
-          style={styles.reactLogo}
-        />
-      }
-    >
-      <ThemedView
-        className="border-2 border-purple-600"
-        style={styles.titleContainer}
-      >
-        <ThemedText
-          className="border-2 border-red-500 active:bg-red-500 text-red-500"
-          type="title"
-        >
-          Welcome!
-        </ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          to see changes. Press{" "}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: "cmd + d", android: "cmd + m" })}
-          </ThemedText>{" "}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this
-          starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{" "}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>{" "}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{" "}
-          directory. This will move the current{" "}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeAreaView style={ROOT_STYLE}>
+      <View className="mx-auto max-w-sm flex-1 justify-between px-8 py-4">
+        <View className="pt-8">
+          <Text className="font-black text-white text-4xl">
+            Welcome to your
+          </Text>
+          <Text className="ios:text-left ios:font-black text-blue-500 text-4xl">
+            Application
+          </Text>
+        </View>
+
+        <View>
+          {features.map(({ title, description }, index) => (
+            <View
+              key={index}
+              className="flex-row items-center gap-4 ios:pt-8 pt-4"
+            >
+              <View className="bg-blue-500 rounded p-3"></View>
+
+              <View className="flex-1">
+                <Text className="font-semibold text-white text-lg">
+                  {title}
+                </Text>
+                <Text className="text-gray-400">{description}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
+
+        <View className="gap-4">
+          <View className="bg-blue-500 w-4 h-4 rounded p-3"></View>
+          <Text className="text-white text-xs">
+            By pressing continue, you agree to our Terms of Service and that you
+            have read our Privacy Policy
+          </Text>
+          <Pressable className="bg-blue-500 rounded-md active:opacity-75 active:scale-95 transition py-3">
+            <Text className="text-white text-center text-lg">Continue</Text>
+          </Pressable>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});
