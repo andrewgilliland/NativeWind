@@ -1,9 +1,11 @@
-import { Pressable, SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import { ROOT_STYLE } from "./(tabs)";
-import colors from "tailwindcss/colors";
 import { Link } from "expo-router";
+import BootStrapButton from "@/components/buttons/BootStrapButton";
 
 const ButtonsScreen = () => {
+  const buttons = [<BootStrapButton />];
+
   return (
     <SafeAreaView style={ROOT_STYLE}>
       <View className="border border-white p-4 flex-1">
@@ -16,11 +18,11 @@ const ButtonsScreen = () => {
             <Text className="font-semibold text-white text-xl">Go Back</Text>
           </Link>
         </View>
-        <View className="flex-row justify-center items-center border border-white p-4 mt-2">
-          <Pressable className="bg-blue-500 px-6 py-3 rounded-md">
-            <Text className="font-semibold text-white text-2xl">Button</Text>
-          </Pressable>
-        </View>
+        {buttons.map((button) => (
+          <View className="flex-row justify-center items-center border border-white p-4 mt-2">
+            {button}
+          </View>
+        ))}
       </View>
     </SafeAreaView>
   );
