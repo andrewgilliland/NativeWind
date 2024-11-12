@@ -3,9 +3,13 @@ import { ROOT_STYLE } from "./(tabs)";
 import { Link } from "expo-router";
 
 import ScreenHeading from "@/components/typography/ScreenHeading";
+import CardHeading from "@/components/typography/CardHeading";
 
 const TypographyScreen = () => {
-  const buttons = [<ScreenHeading>Screen Heading</ScreenHeading>];
+  const typographyComponents = [
+    <ScreenHeading>Screen Heading</ScreenHeading>,
+    <CardHeading>Card Heading</CardHeading>,
+  ];
 
   return (
     <SafeAreaView style={ROOT_STYLE}>
@@ -19,9 +23,9 @@ const TypographyScreen = () => {
             <Text className="font-semibold text-white text-xl">Go Back</Text>
           </Link>
         </View>
-        {buttons.map((button) => (
+        {typographyComponents.map((component) => (
           <View className="flex-row justify-center items-center border border-white p-4 mt-2">
-            {button}
+            {component}
           </View>
         ))}
       </View>

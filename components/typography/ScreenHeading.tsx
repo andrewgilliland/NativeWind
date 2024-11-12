@@ -5,8 +5,7 @@ type ScreenHeadingProps = {
   children: React.ReactNode;
 };
 
-const ScreenHeading: FC<ScreenHeadingProps> = ({ children }) => {
-  return <Text className="font-black text-white text-4xl">{children}</Text>;
-};
-
+const ScreenHeading: FC<ScreenHeadingProps> = ({ children }) => (
+  <Text className="font-black text-white text-4xl">{children}</Text>
+);
 export default ScreenHeading;

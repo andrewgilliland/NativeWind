@@ -1,9 +1,10 @@
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { ROOT_STYLE } from "..";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "tailwindcss/colors";
 import { Href, Link } from "expo-router";
 import ScreenHeading from "@/components/typography/ScreenHeading";
+import CardHeading from "@/components/typography/CardHeading";
 
 const ComponentsScreen = () => {
   const screens: { title: string; href: Href<string | object> }[] = [
@@ -20,7 +21,7 @@ const ComponentsScreen = () => {
         {screens.map(({ title, href }, index) => (
           <Link key={index} href={href} className="border border-white mt-2">
             <View className="flex-row justify-between items-center w-full p-4">
-              <Text className="font-semibold text-white text-2xl">{title}</Text>
+              <CardHeading>{title}</CardHeading>
               <Ionicons
                 name="chevron-forward"
                 className=""
