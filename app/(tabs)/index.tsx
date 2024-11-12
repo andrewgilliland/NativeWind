@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import colors from "tailwindcss/colors";
 
-const ROOT_STYLE: ViewStyle = { flex: 1 };
+export const ROOT_STYLE: ViewStyle = { flex: 1 };
 
 export default function HomeScreen() {
   const features = [
