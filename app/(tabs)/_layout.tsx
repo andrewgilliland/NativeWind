@@ -25,7 +25,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="components"
+        name="components/index"
         options={{
           title: "Components",
           tabBarIcon: ({ color, focused }) => (
