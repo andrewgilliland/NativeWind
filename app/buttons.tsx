@@ -3,9 +3,13 @@ import { ROOT_STYLE } from "./(tabs)";
 import { Link } from "expo-router";
 import BootStrapButton from "@/components/buttons/BootStrapButton";
 import ScreenHeading from "@/components/typography/ScreenHeading";
+import OutlineButton from "@/components/buttons/OutlineButton";
 
 const ButtonsScreen = () => {
-  const buttons = [<BootStrapButton />];
+  const buttons = [
+    <BootStrapButton title="Button" />,
+    <OutlineButton title="Outline Button" />,
+  ];
 
   return (
     <SafeAreaView style={ROOT_STYLE}>
