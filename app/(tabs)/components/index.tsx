@@ -2,27 +2,34 @@ import { SafeAreaView, Text, View } from "react-native";
 import { ROOT_STYLE } from "..";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "tailwindcss/colors";
-import { Link } from "expo-router";
+import { Href, Link } from "expo-router";
 import ScreenHeading from "@/components/typography/ScreenHeading";
 
 const ComponentsScreen = () => {
+  const screens: { title: string; href: Href<string | object> }[] = [
+    { title: "Buttons", href: "/buttons" },
+    { title: "Typography", href: "/typography" },
+  ];
+
   return (
     <SafeAreaView style={ROOT_STYLE}>
       <View className="border border-white p-4 flex-1">
         <View className="border-b-2 border-white py-4">
           <ScreenHeading>Components</ScreenHeading>
         </View>
-        <Link href="/buttons" className="border border-white mt-2">
-          <View className="flex-row justify-between items-center w-full p-4">
-            <Text className="font-semibold text-white text-2xl">Buttons</Text>
-            <Ionicons
-              name="chevron-forward"
-              className=""
-              size={24}
-              color={colors.gray[400]}
-            />
-          </View>
-        </Link>
+        {screens.map(({ title, href }, index) => (
+          <Link key={index} href={href} className="border border-white mt-2">
+            <View className="flex-row justify-between items-center w-full p-4">
+              <Text className="font-semibold text-white text-2xl">{title}</Text>
+              <Ionicons
+                name="chevron-forward"
+                className=""
+                size={24}
+                color={colors.gray[400]}
+              />
+            </View>
+          </Link>
+        ))}
       </View>
     </SafeAreaView>
   );
