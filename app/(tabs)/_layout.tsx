@@ -18,7 +18,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Welcome",
+          title: "NativeWind",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name="planet" color={color} />
           ),
@@ -33,6 +33,15 @@ export default function TabLayout() {
               name={focused ? "code-slash" : "code-slash-outline"}
               color={color}
             />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? "cog" : "cog-outline"} color={color} />
           ),
         }}
       />

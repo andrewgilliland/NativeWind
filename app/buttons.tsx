@@ -23,8 +23,11 @@ const ButtonsScreen = () => {
             <Text className="font-semibold text-white text-xl">Go Back</Text>
           </Link>
         </View>
-        {buttons.map((button) => (
-          <View className="flex-row justify-center items-center border border-white p-4 mt-2">
+        {buttons.map((button, index) => (
+          <View
+            key={index}
+            className="flex-row justify-center items-center border border-white p-4 mt-2"
+          >
             {button}
           </View>
         ))}

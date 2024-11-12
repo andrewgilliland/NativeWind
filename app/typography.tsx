@@ -23,8 +23,11 @@ const TypographyScreen = () => {
             <Text className="font-semibold text-white text-xl">Go Back</Text>
           </Link>
         </View>
-        {typographyComponents.map((component) => (
-          <View className="flex-row justify-center items-center border border-white p-4 mt-2">
+        {typographyComponents.map((component, index) => (
+          <View
+            key={index}
+            className="flex-row justify-center items-center border border-white p-4 mt-2"
+          >
             {component}
           </View>
         ))}
