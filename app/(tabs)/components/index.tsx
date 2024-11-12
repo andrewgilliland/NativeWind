@@ -3,13 +3,14 @@ import { ROOT_STYLE } from "..";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "tailwindcss/colors";
 import { Link } from "expo-router";
+import ScreenHeading from "@/components/typography/ScreenHeading";
 
 const ComponentsScreen = () => {
   return (
     <SafeAreaView style={ROOT_STYLE}>
       <View className="border border-white p-4 flex-1">
         <View className="border-b-2 border-white py-4">
-          <Text className="font-black text-white text-4xl">Components</Text>
+          <ScreenHeading>Components</ScreenHeading>
         </View>
         <Link href="/buttons" className="border border-white mt-2">
           <View className="flex-row justify-between items-center w-full p-4">

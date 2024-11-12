@@ -2,6 +2,7 @@ import { SafeAreaView, Text, View } from "react-native";
 import { ROOT_STYLE } from "./(tabs)";
 import { Link } from "expo-router";
 import BootStrapButton from "@/components/buttons/BootStrapButton";
+import ScreenHeading from "@/components/typography/ScreenHeading";
 
 const ButtonsScreen = () => {
   const buttons = [<BootStrapButton />];
@@ -10,7 +11,7 @@ const ButtonsScreen = () => {
     <SafeAreaView style={ROOT_STYLE}>
       <View className="border border-white p-4 flex-1">
         <View className="flex-row justify-between items-center border-b-2 border-white py-4">
-          <Text className="font-black text-white text-4xl">Buttons</Text>
+          <ScreenHeading>Buttons</ScreenHeading>
           <Link
             className="border-2 border-white px-4 py-2 rounded-md"
             href="/(tabs)/components"
