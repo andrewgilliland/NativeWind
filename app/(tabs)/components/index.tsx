@@ -8,14 +8,11 @@ const ComponentsScreen = () => {
   return (
     <SafeAreaView style={ROOT_STYLE}>
       <View className="border border-white p-4 flex-1">
-        <View className="border border-white py-4">
+        <View className="border-b-2 border-white py-4">
           <Text className="font-black text-white text-4xl">Components</Text>
         </View>
-        <Link
-          href="/buttons"
-          className="flex-row justify-between items-center border border-white p-4"
-        >
-          <View className="flex-row justify-between items-center border border-white p-4">
+        <Link href="/buttons" className="border border-white mt-2">
+          <View className="flex-row justify-between items-center w-full p-4">
             <Text className="font-semibold text-white text-2xl">Buttons</Text>
             <Ionicons
               name="chevron-forward"

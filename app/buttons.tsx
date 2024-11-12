@@ -1,10 +1,9 @@
 import { Pressable, SafeAreaView, Text, View } from "react-native";
 import { ROOT_STYLE } from "./(tabs)";
-import { Ionicons } from "@expo/vector-icons";
 import colors from "tailwindcss/colors";
 import { Link } from "expo-router";
 
-const ComponentsScreen = () => {
+const ButtonsScreen = () => {
   return (
     <SafeAreaView style={ROOT_STYLE}>
       <View className="border border-white p-4 flex-1">
@@ -27,4 +26,4 @@ const ComponentsScreen = () => {
   );
 };
 
-export default ComponentsScreen;
+export default ButtonsScreen;
